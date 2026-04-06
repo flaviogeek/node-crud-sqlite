@@ -32,13 +32,13 @@ Projeto de exemplo em Node.js usando SQLite, com Docker e deploy automatizado vi
 
 ```bash
 node-crud-sqlite/
-├── app.js                 # Código principal da API
-├── package.json
-├── package-lock.json
-├── Dockerfile             # Configuração Docker
-├── deploy.sh              # Script de deploy automatizado
-├── test.sh                # Script de testes automáticos
-└── README.md
+├──📦 app.js                 # Código principal da API
+├──📦 package.json
+├──📦 package-lock.json
+├──📦 Dockerfile             # Configuração Docker
+├──📦 deploy.sh              # Script de deploy automatizado
+├──📦 test.sh                # Script de testes automáticos
+└──📦 README.md
 
 Como rodar localmente (com Docker)
 
