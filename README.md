@@ -44,12 +44,14 @@ node-crud-sqlite/
 ├── deploy.sh              # Script de deploy automatizado
 ├── test.sh                # Script de testes automáticos
 └── README.md
-
 ## 🚀 Como rodar localmente (com Docker)
 
 ### 1. Clone o repositório
 
 ```bash
+git clone https://github.com/flaviogeek/node-crud-sqlite.git
+cd node-crud-sqlite
+
 git clone https://github.com/flaviogeek/node-crud-sqlite.git
 cd node-crud-sqlite
 
@@ -61,10 +63,11 @@ Bashdocker logs -f node-crud-sqlite
 
 A API estará disponível em: http://localhost:3000
 🧪 Testes Automáticos
+
 Os testes são executados automaticamente dentro do container pelo deploy.sh usando test.sh.
 Você também pode rodar os testes manualmente:
 Bash./test.sh
-📌 Observações
 
+📌 Observações
 O script deploy.sh limpa containers e caches antigos, puxa o código mais recente, reconstrói a imagem e sobe o container.
 Todos os dados são armazenados no arquivo database.sqlite dentro do container.
