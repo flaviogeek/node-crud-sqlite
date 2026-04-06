@@ -1,73 +1,68 @@
-# Node CRUD SQLite API 🗃️
+# Node CRUD SQLite API 🧩
 
-[![Node.js](https://img.shields.io/badge/Node.js-22-brightgreen?logo=node.js&logoColor=white)](https://nodejs.org/) [![Docker](https://img.shields.io/badge/Docker-Container-blue?logo=docker&logoColor=white)](https://www.docker.com/)
+Uma API REST simples e completa em **Node.js** usando **SQLite**, **Docker** e deploy automatizado.
 
-Projeto de exemplo em Node.js usando SQLite, com Docker e deploy automatizado via deploy.sh. Inclui testes automáticos das rotas CRUD.
+Projeto de exemplo com rotas CRUD para usuários, persistência em SQLite, containerização com Docker e scripts de deploy e testes automáticos.
 
-## Funcionalidades
+![Node.js](https://img.shields.io/badge/Node.js-22-339933?logo=node.js&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
 
-API REST para usuários:
+## ✨ Funcionalidades
 
-- GET /users – lista todos os usuários
-- POST /users – cria um novo usuário
-- GET /users/:id – consulta usuário por ID
-- PUT /users/:id – atualiza usuário por ID
-- DELETE /users/:id – remove usuário por ID
+### API REST para Usuários
 
-Outros recursos:
+- `GET /users` — Lista todos os usuários
+- `POST /users` — Cria um novo usuário
+- `GET /users/:id` — Consulta usuário por ID
+- `PUT /users/:id` — Atualiza usuário por ID
+- `DELETE /users/:id` — Remove usuário por ID
 
-- Persistência via SQLite
-- Dockerizado com Node.js 22
-- Deploy automatizado via deploy.sh: limpa containers antigos e caches do Docker e NPM, atualiza código do GitHub, reconstrói e sobe o container, executa testes automáticos (test.sh) dentro do container
-- Testes automáticos usando curl + jq
+### Outros Recursos
 
-## Tecnologias
+- Persistência com **SQLite** (arquivo único)
+- Totalmente **Dockerizado** com Node.js 22
+- Deploy automatizado via `deploy.sh`
+- Testes automáticos com `curl + jq`
 
-- Node.js 22
-- Express.js
-- SQLite
-- Docker
+## 🛠 Tecnologias
+
+- **Node.js** 22
+- **Express.js**
+- **SQLite**
+- **Docker**
 - Bash scripting
-- jq para parsing JSON nos testes
+- **jq** (para testes)
 
-## Estrutura do Projeto
+## 📁 Estrutura do Projeto
+
+```bash
 node-crud-sqlite/
-├─ app.js # Código principal da API
-├─ package.json
-├─ package-lock.json
-├─ Dockerfile # Configuração Docker
-├─ deploy.sh # Script de deploy automatizado
-├─ test.sh # Script de testes automáticos
-└─ README.md
+├── app.js                 # Código principal da API
+├── package.json
+├── package-lock.json
+├── Dockerfile             # Configuração Docker
+├── deploy.sh              # Script de deploy automatizado
+├── test.sh                # Script de testes automáticos
+└── README.md
 
-## Como rodar localmente (com Docker)
+🚀 Como rodar localmente (com Docker)
 
-1. Clone o repositório:
-git clone https://github.com/seu-usuario/node-crud-sqlite.git
-
+1. Clone o repositório
+Bashgit clone https://github.com/seu-usuario/node-crud-sqlite.git
 cd node-crud-sqlite
 
-2. Rodar o deploy automatizado:
-sudo ./deploy.sh
+2. Execute o deploy automatizado
+Bashsudo ./deploy.sh
 
-3. Ver logs da API:
-docker logs -f node-crud_sqlite
+3. Ver os logs da API
+Bashdocker logs -f node-crud-sqlite
+A API estará disponível em: http://localhost:3000
 
-4. Testar endpoints manualmente:
+🧪 Testes Automáticos
+Os testes são executados automaticamente dentro do container pelo deploy.sh usando test.sh.
+Você também pode rodar os testes manualmente:
+Bash./test.sh
+📌 Observações
 
-curl http://localhost:3000/users
-curl -X POST http://localhost:3000/users \
--H "Content-Type: application/json" \
--d '{"name":"Flavio","email":"flavio@test.com"}'
-
-## Como os testes funcionam
-
-- test.sh roda dentro do container
-- Testa todas as rotas CRUD automaticamente
-- Mostra status de cada operação
-
-## Observações
-
-- deploy.sh garante que o container está limpo e atualizado
-- SQLite é usado para simplicidade e testes locais
-- Dockerfile inclui compilação do sqlite3 e instalação de jq
+O script deploy.sh limpa containers e caches antigos, puxa o código mais recente do GitHub, reconstrói a imagem e sobe o container.
+Todos os dados são armazenados no arquivo database.sqlite dentro do container.
