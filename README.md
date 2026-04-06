@@ -100,4 +100,4 @@ curl http://localhost:3000/users
 ### 5. Veja os logs da API
 
 ```bash
-docker logs -f node-crud_sqli
+docker logs -f node-crud_sqlite
