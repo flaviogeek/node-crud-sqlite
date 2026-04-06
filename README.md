@@ -52,22 +52,22 @@ node-crud-sqlite/
 git clone https://github.com/flaviogeek/node-crud-sqlite.git
 cd node-crud-sqlite
 
+```bash
 git clone https://github.com/flaviogeek/node-crud-sqlite.git
 cd node-crud-sqlite
 
+```bash
 2. Execute o deploy automatizado
 Bashsudo ./deploy.sh
 
+```bash
 3. Ver os logs da API
 Bashdocker logs -f node-crud-sqlite
 
 A API estará disponível em: http://localhost:3000
 🧪 Testes Automáticos
 
+```bash
 Os testes são executados automaticamente dentro do container pelo deploy.sh usando test.sh.
 Você também pode rodar os testes manualmente:
 Bash./test.sh
-
-📌 Observações
-O script deploy.sh limpa containers e caches antigos, puxa o código mais recente, reconstrói a imagem e sobe o container.
-Todos os dados são armazenados no arquivo database.sqlite dentro do container.
