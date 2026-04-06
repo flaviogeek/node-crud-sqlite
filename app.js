@@ -1,37 +1,36 @@
-// app.js
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
+
 const usersRouter = require('./routes/users');
 
 const app = express();
 
-// Middleware para parse de JSON
+// Logging de todas as requisições HTTP
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+
 app.use(bodyParser.json());
-
-// Middleware de logging de requests (observabilidade básica)
-app.use((req, res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
-  next();
-});
-
-// Rotas da API
 app.use('/users', usersRouter);
+
+app.get('/', (req, res) => {
+  res.send('API CRUD SQLite rodando 🚀');
+});
 
 // Health check
 app.get('/health', (req, res) => {
-  console.log(`[${new Date().toISOString()}] Health check solicitado`);
+  console.log('[Health check solicitado]');
   res.status(200).json({ status: 'ok' });
 });
 
-// Readiness check (verifica se banco está acessível)
+// Readiness check
 app.get('/ready', (req, res) => {
   const db = require('./database');
   db.get('SELECT 1', (err) => {
     if (err) {
-      console.warn(`[${new Date().toISOString()}] Readiness check falhou`);
+      console.log('[Readiness check] NOT READY');
       return res.status(503).json({ status: 'not ready' });
     }
-    console.log(`[${new Date().toISOString()}] Readiness check OK`);
+    console.log('[Readiness check] READY');
     res.status(200).json({ status: 'ready' });
   });
 });
