@@ -75,3 +75,15 @@ app.get('/users/:id', (req, res) => {
       res.json({ message: "Usuário deletado" });
     });
   });
+
+  // Health check
+  app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok' });
+  });
+  
+  app.get('/ready', (req, res) => {
+    db.get('SELECT 1', (err) => {
+      if (err) return res.status(503).json({ status: 'not ready' });
+      res.status(200).json({ status: 'ready' });
+    });
+  });
