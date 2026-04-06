@@ -4,7 +4,7 @@ Um projeto de exemplo em **Node.js** usando **SQLite** para persistência, com *
 
 ---
 
-## 🔹 Funcionalidades
+## Funcionalidades
 
 API REST para gerenciamento de usuários:
 
@@ -18,7 +18,7 @@ Outros recursos:
 
 - Persistência via **SQLite**
 - Dockerizado com **Node.js 22**
-- Deploy automatizado via `deploy.sh`:
+- Deploy automatizado via `deploy.sh`
   - Limpa containers antigos e caches do Docker e NPM
   - Atualiza código do GitHub
   - Reconstrói e sobe o container
@@ -27,7 +27,7 @@ Outros recursos:
 
 ---
 
-## 🔹 Tecnologias
+## Tecnologias
 
 - Node.js 22
 - Express.js
@@ -38,7 +38,7 @@ Outros recursos:
 
 ---
 
-## 🔹 Estrutura do Projeto
+## Estrutura do Projeto
 node-crud-sqlite/
 ├─ app.js # Código principal da API
 ├─ package.json
@@ -49,6 +49,14 @@ node-crud-sqlite/
 └─ README.md
 
 ---
+
+## Como rodar localmente (com Docker)
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/node-crud-sqlite.git
+cd node-crud-sqlite
 Rodar o deploy automatizado:
 sudo ./deploy.sh
 Ver logs da API:
@@ -58,11 +66,11 @@ curl http://localhost:3000/users
 curl -X POST http://localhost:3000/users \
 -H "Content-Type: application/json" \
 -d '{"name":"Flavio","email":"flavio@test.com"}'
-🔹 Como os testes funcionam
+Como os testes funcionam
 test.sh roda dentro do container
 Testa todas as rotas CRUD (GET, POST, PUT, DELETE) automaticamente
 Mostra status de cada operação
-🔹 Observações
+Observações
 O deploy.sh garante que o container está limpo e atualizado antes de buildar
 SQLite é usado para simplicidade e testes locais
 Dockerfile inclui compilação do sqlite3 e instalação de jq
