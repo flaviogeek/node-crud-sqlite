@@ -1,39 +1,34 @@
-# Node CRUD SQLite API 🧩
+# Node CRUD SQLite API 📦
 
-Uma API REST simples e completa em **Node.js** usando **SQLite**, **Docker** e deploy automatizado.
+Projeto de exemplo em Node.js usando SQLite, com Docker e deploy automatizado via `deploy.sh`. Inclui testes automáticos das rotas CRUD.
 
-Projeto de exemplo com rotas CRUD para usuários, persistência em SQLite, containerização com Docker e scripts de deploy e testes automáticos.
+## Funcionalidades
 
-![Node.js](https://img.shields.io/badge/Node.js-22-339933?logo=node.js&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+### API REST para usuários:
 
-## ✨ Funcionalidades
+- **GET** `/users` — lista todos os usuários
+- **POST** `/users` — cria um novo usuário
+- **GET** `/users/:id` — consulta usuário por ID
+- **PUT** `/users/:id` — atualiza usuário por ID
+- **DELETE** `/users/:id` — remove usuário por ID
 
-### API REST para Usuários
+### Outros recursos:
 
-- `GET /users` — Lista todos os usuários
-- `POST /users` — Cria um novo usuário
-- `GET /users/:id` — Consulta usuário por ID
-- `PUT /users/:id` — Atualiza usuário por ID
-- `DELETE /users/:id` — Remove usuário por ID
+- Persistência via **SQLite**
+- Dockerizado com **Node.js 22**
+- Deploy automatizado via `deploy.sh`: limpa containers antigos e caches do Docker e NPM, atualiza código do GitHub, reconstrói e sobe o container, executa testes automáticos (`test.sh`) dentro do container
+- Testes automáticos usando `curl + jq`
 
-### Outros Recursos
+## Tecnologias
 
-- Persistência com **SQLite** (arquivo único)
-- Totalmente **Dockerizado** com Node.js 22
-- Deploy automatizado via `deploy.sh`
-- Testes automáticos com `curl + jq`
-
-## 🛠 Tecnologias
-
-- **Node.js** 22
-- **Express.js**
-- **SQLite**
-- **Docker**
+- Node.js 22
+- Express.js
+- SQLite
+- Docker
 - Bash scripting
-- **jq** (para testes)
+- `jq` para parsing JSON nos testes
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```bash
 node-crud-sqlite/
@@ -44,6 +39,8 @@ node-crud-sqlite/
 ├── deploy.sh              # Script de deploy automatizado
 ├── test.sh                # Script de testes automáticos
 └── README.md
+
+Como rodar localmente (com Docker)
 
 ## 🚀 Como rodar localmente (com Docker)
 
