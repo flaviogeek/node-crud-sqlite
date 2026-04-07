@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Dependências do npm
+package-lock.json
+
+# SQLite database
+*.sqlite
+*.db
+
+# Ambiente local
+.env
+
+# Docker
+docker-compose.override.yml
